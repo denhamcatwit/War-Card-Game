@@ -5,7 +5,6 @@ Uses data from socket to create a new user.
 '''
 class User(BaseModel):
     username: str #  = WebServer.get_username()
-    balance: float #   = WebServer.DEFAULT_BALANCE
     room_id: int #   = WebServer.assign_user_to_room
     user_id: int # = WebServer.player_count
 
