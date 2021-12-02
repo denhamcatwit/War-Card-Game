@@ -79,7 +79,8 @@ Will check user_id and see what range it falls in
 Based on that range it will assign to a Room correlating to that range
 (user_id 17 -> (int) math.ceiling(user_id/6) = 3, so user assigned to room 3)
 '''
-@fastapi.post(f"/assign-room/{create_new_user.user_id}")
+
+@fastapi.post("/assign-room/{user_id}")
 def assign_user_to_room(user_id: int, Room: schemas.Room):
     assigned_room = get_room_id()
     if assigned_room > create_new_user.room_id.players[player_count - 1]:
@@ -92,7 +93,7 @@ def assign_user_to_room(user_id: int, Room: schemas.Room):
 '''
 Will return the information necessary to have player join room they were assigned. 
 '''
-@fastapi.get("/joining-room")
+# @fastapi.get("/joining-room")
 def send_user_to_room(room: schemas.User.room_id):
     user = get_user_id()
     room.add(user)
