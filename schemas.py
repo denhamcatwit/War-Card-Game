@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 from typing import List
-
 from starlette.websockets import WebSocket
 
 '''
@@ -19,12 +18,11 @@ class User():
 
 
 '''
-Creates a playable location for 6 players to carry out 
-their game of Poker. 
+Creates a playable location for 2 players to carry out 
+their game of War. 
 '''
 class Table():
     users: List[User] = []
-    pot: int = 0
     isActive: bool = False
     websocket: WebSocket
 

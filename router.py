@@ -3,6 +3,7 @@ import websocket
 from fastapi.exceptions import FastAPIError
 from starlette.requests import Request
 from starlette.responses import Response
+
 from game import Game
 from schemas import AddUserReq
 
@@ -10,7 +11,7 @@ class Router:
     router = APIRouter()
     # game =  Game()
     @router.get('/')
-    async def getHome():
+    async def getHome(self):
         return "hello world"
 
     @router.post('/user/create')
@@ -27,5 +28,6 @@ class Router:
     @router.websocket('/ws/{tableId}')
     async def getTable(websocket: WebSocket, tableId: int):
         Game()._instance.connect_to_table(tableId)
+
         while True:
-            websocket.send(Game()._instance.get_table(tableId))
+            await websocket.send(Game()._instance.get_table(tableId))

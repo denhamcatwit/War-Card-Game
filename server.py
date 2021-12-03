@@ -1,9 +1,8 @@
 from fastapi import FastAPI, File, UploadFile, APIRouter, Depends, Form
 
 from router import Router
-# from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.cors import CORSMiddleware
-# from starle
+
 class Server:
     def __init__(self):
         app = FastAPI()

@@ -51,7 +51,7 @@ def create_new_user(username, player_count, user: schemas.User):
                              user_id: user.user_id}
 
     player_count += 1
-    send_user_to_room(user_id, room_id)
+    send_user_to_room(user_id)
 
 
 '''
@@ -97,25 +97,3 @@ Will return the information necessary to have player join room they were assigne
 def send_user_to_room(room: schemas.User.room_id):
     user = get_user_id()
     room.add(user)
-
-
-
-@fastapi.put("/creating-new-room")
-def create_new_room():
-
-
-
-    pass
-
-
-'''
-Need to create a room object and call upon that here
-room id will be number of room
-will create a new room if room id changes
-error occurs because
-  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
-  File ".\WebServer.py", line 96, in <module>
-    def send_user_to_room(room: schemas.User.room_id):
-AttributeError: type object 'User' has no attribute 'room_id'
-
-'''
