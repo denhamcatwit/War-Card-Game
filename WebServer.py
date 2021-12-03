@@ -81,7 +81,7 @@ Based on that range it will assign to a Room correlating to that range
 '''
 
 @fastapi.post("/assign-room/{user_id}")
-def assign_user_to_room(user_id: int, Room: schemas.Room):
+def assign_user_to_room():
     assigned_room = get_room_id()
     if assigned_room > create_new_user.room_id.players[player_count - 1]:
         pass

@@ -5,16 +5,16 @@ class Card(object):
     suits = ['D', 'H', 'S', 'C']
     values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     value = 0
-    suit = ''
+    suit: str = ''
 
-    def __init__(self, value, suit):
+    def __init__(self, value: int, suit: str):
         self.value = value
         self.suit = suit
 
-    def val(self):
+    def get_value(self):
         return self.value
 
-    def suit(self):
+    def get_suit(self):
         return self.suit
 
 
@@ -23,7 +23,7 @@ class Deck(object):
         self.deck = []
         for suit in Card.suits:
             for value in Card.values:
-                card = Card(Card.values[value], Card.suits[suit])
+                card = Card(value, suit)
                 self.deck.append(card)
         random.shuffle(self.deck)
 
@@ -43,10 +43,10 @@ class Deck(object):
 
 class DeckOfDecks(object):
     def __init__(self):
-        self.ddeck = []
+        self.super_deck = []
 
     def add(self, Deck1, Deck2):
-        self.ddeck.pop()
-        self.ddeck.pop()
-        self.ddeck.append(Deck1)
-        self.ddeck.append(Deck2)
+        self.super_deck.pop()
+        self.super_deck.pop()
+        self.super_deck.append(Deck1)
+        self.super_deck.append(Deck2)
